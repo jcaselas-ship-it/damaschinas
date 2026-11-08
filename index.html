@@ -96,13 +96,18 @@ details ul{padding-left:18px;margin:6px 0}
 #status{font-weight:700;font-size:1.05rem;display:flex;align-items:center;gap:8px;min-height:1.6em;text-align:center;justify-content:center;flex-wrap:wrap}
 #status small{color:#e5484d;font-weight:600;font-size:.85rem}
 #modes{display:flex;gap:8px;justify-content:center}
-.modeBtn{font-size:1.6rem;padding:6px 12px;background:var(--sec);border:2px solid transparent}
+.modeBtn{font-size:1.4rem;padding:4px 10px;background:var(--sec);border:2px solid transparent}
 .modeBtn:hover{background:var(--sec);border-color:#3b5b8c}
 .modeBtn.active{border-color:#3b5b8c;background:var(--input);box-shadow:0 0 0 2px rgba(59,91,140,.35)}
 #aiOpts,#netOpts{margin-top:8px}
 #bottom{width:min(92vw,560px)}
 #bottom details{margin-top:6px}
-#ctrl{width:auto;min-width:200px}
+#ctrl{width:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;padding:8px 12px}
+#ctrl #aiOpts,#ctrl #netOpts{margin:0}
+#ctrl .row{margin:0}
+#netStatus{width:100%;text-align:center}
+#netOpts{display:flex;flex-direction:column;align-items:center;gap:4px}
+#netOpts.hidden{display:none}
 #status.win{color:#2e9e45}
 .dot{width:14px;height:14px;border-radius:50%;border:1.5px solid #222;display:inline-block;flex:none}
 .dot.w{background:#fff}.dot.b{background:#2a2a2a}
@@ -119,26 +124,25 @@ body.dark .dot{border-color:#999}
   <h1>Damas chinas</h1>
 </header>
 <main>
-  <section class="panel" id="ctrl">
-    <div id="modes">
-      <button class="modeBtn active" data-mode="local" title="2 jugadores en el mismo dispositivo">👥</button>
-      <button class="modeBtn" data-mode="ai" title="Contra la máquina">🤖</button>
-      <button class="modeBtn" data-mode="net" title="En red">🌐</button>
-    </div>
-    <div id="aiOpts" class="hidden">
-      <div class="row">
-        <select id="level" title="Nivel"><option value="1">Fácil</option><option value="2" selected>Medio</option><option value="3">Difícil</option></select>
-        <select id="hcolor" title="Juegas con"><option value="1">Con blancas</option><option value="2">Con negras</option></select>
-      </div>
-    </div>
-    <div id="netOpts" class="hidden">
-      <div class="row"><button id="btnHost">Crear partida</button></div>
-      <div class="row"><input id="code" maxlength="4" placeholder="CÓDIGO"><button id="btnJoin">Unirse</button></div>
-      <div id="netStatus">Crea una partida y pasa el código a tu rival, o escribe el suyo.</div>
-    </div>
-  </section>
 
   <div id="center">
+    <section class="panel" id="ctrl">
+      <div id="modes">
+        <button class="modeBtn active" data-mode="local" title="2 jugadores en el mismo dispositivo">👥</button>
+        <button class="modeBtn" data-mode="ai" title="Contra la máquina">🤖</button>
+        <button class="modeBtn" data-mode="net" title="En red">🌐</button>
+      </div>
+      <div id="aiOpts" class="hidden">
+        <div class="row">
+          <select id="level" title="Nivel"><option value="1">Fácil</option><option value="2" selected>Medio</option><option value="3">Difícil</option></select>
+          <select id="hcolor" title="Juegas con"><option value="1">Con blancas</option><option value="2">Con negras</option></select>
+        </div>
+      </div>
+      <div id="netOpts" class="hidden">
+        <div class="row"><button id="btnHost">Crear partida</button><input id="code" maxlength="4" placeholder="CÓDIGO"><button id="btnJoin">Unirse</button></div>
+        <div id="netStatus">Crea una partida y pasa el código a tu rival, o escribe el suyo.</div>
+      </div>
+    </section>
     <div id="status"></div>
     <div id="wrap" data-board="madera"><div id="board"></div><div id="pieces"></div></div>
     <div id="actions">

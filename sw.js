@@ -1,5 +1,5 @@
 // Service worker de Damas chinas: funciona sin conexión (salvo el modo en red)
-const CACHE = 'damaschinas-v1';
+const CACHE = 'damaschinas-v2';
 const SHELL = ['./', './index.html', './manifest.webmanifest', './icon.svg', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
